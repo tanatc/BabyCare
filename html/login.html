@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0">
+		<link rel="stylesheet" type="text/css" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="../css/css/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="../css/iconfont.css">
+		
+		<title>登录界面</title>
+		<style>
+			html{
+				background:white;
+				margin:0;
+				padding:0;
+			}
+			.row div{
+				margin:0 auto;
+				/*border:1px red solid;*/
+			}
+			.row div img{
+				width:100%;
+			}
+			#login{
+				margin:-250px auto 0;
+			}
+			img{
+			}
+			form{
+				text-align: center;
+			}
+			.login-form-row{
+				width:100%;
+				margin:0 auto 20px;
+			}
+			#login-container{
+				/*background:url(../img/nbg.png) fixed no-repeat;*/
+			}
+			.iconfont{
+				color:goldenrod;
+			}
+			.btn-sm{
+				padding:5px 35px;
+				border: none;
+				border-radius: 5px;
+				color:white;
+			}
+			.btn-sm:hover{
+				background:gold;
+				outline: none;
+			}
+			.input-group-sm{
+				background:rgba(230,230,230,.5);
+				border:none;
+				border-radius: 5px;
+				outline:none;
+			}
+			.footer{
+				text-align: center;
+				width:100%;
+				color:#1B1E21;
+				font-size:12px;
+			}
+			/*@media  screen and (max-width:1200px ) {
+				#login{
+				margin:-250px auto 0;
+				}
+			}*/
+			@media  screen and (max-width:840px ) {
+				img{
+					margin:100px auto 0;
+				}
+				#login{
+					margin:-200px auto 0;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+		<div class="row">
+		<div id="login-container" class="col-xs-12 col-sm-12 col-md-6">
+			<img src="../img/bg.png" />
+			<div class="row">
+			<div id="login" class="col-12">
+				<form id="form-login" action=" " method="post">
+		            <div class="login-form-row">
+		            	<label><i class="iconfont">&#xe751;</i></label>
+		                <input id="userId" class="input-group-sm" type="text" name="userid" value="" placeholder="账号" onkeyup="(this.v=function(){this.value=this.value.replace(/[^0-9-]+/,'');}).call(this)" onblur="this.v();" />
+		            </div>
+		            <div class="login-form-row">
+		            	<label><i class="iconfont">&#xe603;</i></label>
+		            	<input id="userPwd" class="input-group-sm" type="password" name="userpwd"  value="" placeholder="密码" />
+		            </div>
+		            <div class="login-form-row">
+		            	<input type="submit"  class="btn-sm btn-warning" value="登&nbsp&nbsp&nbsp录"/> 
+			        </div>
+		        </form>
+			</div>
+			</div>
+
+		</div>
+		</div>
+   		</div>
+		<div class="footer">Copyright©2018</div>
+		
+		<script type="text/javascript" src="../node_modules/vue/dist/vue.js"></script>	
+		<script>
+			
+		</script>
+	</body>
+</html>

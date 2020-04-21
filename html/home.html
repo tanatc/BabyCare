@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0">
+		<link rel="stylesheet" type="text/css" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="../css/iconfont.css">
+		<script type="text/javascript" src="../js/jquery-1.10.2.min.js"></script>
+		<script type="text/javascript" src="../node_modules/bootstrap/dist/js/bootstrap.js" ></script>
+		<title>综合智能监护系统</title>
+		<style type="text/css">
+		</style>
+	</head>
+	<body class="bg-white">
+		<!--导航-->
+		<nav class="navbar navbar-light bg-warning position-fixed w-100" style="height:40px;box-shadow:0 1px 5px #888888;top:0; z-index: 2; clear: both;flex-wrap: nowrap;">
+			<div class="">
+				<a class="navbar-brand text-white" href="#">综合智能监护系统</a>
+			</div>
+		  	<div class="float-right d-none d-md-block d-lg-block">
+				<img style="width:25px;height:25px;" class="rounded-circle" src="../img/bg.png" />
+				<div id="userName" style="line-height:25px;" class="float-right d-none d-sm-block d-lg-block ml-1" >
+					用户名
+				</div>
+		  	</div>
+		  	<button id="menuBtn" class="btn-sm float-right  btn-outline-secondary border-0 d-md-none d-lg-none" type="button" data-toggle="collapse" data-target="#menu" aria-expanded="false" aria-controls="menu">
+		    	<span class="iconfont" style="font-size: 20px;">&#xe62d;</span>
+		 	</button>
+		</nav>
+		<!--菜单-->
+		<div class="container-fluid" style="margin-top:40px;">
+			<div class="row">
+				<div class="col-md-2 collapse bg-white show position-fixed pt-2" id="menu" style="z-index: 1;">
+					<ul class="list-group">
+						<a class="" href="enviroment.html" target="interface"><li class="list-group-item"><span class="iconfont">&#xe619;</span>环境监测</li></a>
+					  	<a href="css3.html" target="interface"><li class="list-group-item"><span class="iconfont">&#xe617;</span>设施控制</li></a>
+					 	<a href="home.html" target="interface"> <li class="list-group-item"><span class="iconfont">&#xe61a;</span>安防数据</li></a>
+					 	<a href="fitness.html" target="interface"><li class="list-group-item"><span class="iconfont">&#xe618;</span>健康信息</li></a>
+					 	<a href="home.html" target="interface"> <li class="list-group-item"><span class="iconfont">&#xe618;</span>警报</li></a>
+					</ul>
+				</div>
+				<div class="col-md-2 bg-white d-none d-md-block d-lg-block pt-2">
+					<ul class="list-group">
+					  	<a href="home.html" target="interface"><li class="list-group-item"><span class="iconfont">&#xe619;</span>环境监测</li></a>
+					  	<a href="home.html"><li class="list-group-item"><span class="iconfont">&#xe617;</span>设施控制</li></a>
+					 	<a href="home.html"> <li class="list-group-item"><span class="iconfont">&#xe61a;</span>安防数据</li></a>
+					 	<a href="home.html"><li class="list-group-item"><span class="iconfont">&#xe618;</span>健康信息</li></a>
+					 	<a href="home.html"> <li class="list-group-item"><span class="iconfont">&#xe618;</span>警报</li></a>
+					</ul>
+				</div>
+				<div class="col-md-10 p-sm-0 mt-2" style="height:800px;">
+					<div class="embed-responsive embed-responsive-16by9 h-100" style="border-radius: .25rem;">
+					  <iframe name="interface" class="embed-responsive-item h-100" src="index.html" allowfullscreen></iframe>
+					</div>
+				</div>
+			</div>
+		</div>
+		<footer class="text-center mt-4 p-3">Copyright©2018</footer>
+	</body>
+	<script type="text/javascript">
+	 $(function(){
+	 	$('#menu').collapse({
+		    toggle: false
+		});
+		$('#menu').on('show.bs.collapse', function () {
+   		});
+	 });
+		
+	</script>
+</html>

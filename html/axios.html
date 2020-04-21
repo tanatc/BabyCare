@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+		<link href="../css/open-iconic-master/font/css/open-iconic-bootstrap.css" rel="stylesheet">
+		<title></title>
+		<style>
+			.del{
+				text-decoration: line-through;
+				color: #CCE5FF;
+			}
+		</style>
+	</head>
+	<body>
+		<nav class="navbar navbar-light bg-secondary ">
+		  <div class="container-fluid">
+		    <div class="navbar-brand">
+		      <a class="navbar-brand text-info" href="#">
+		        Brand
+		      </a>
+		    </div>
+		  </div>
+		</nav>
+		<div id="app" class="container-fluid">
+			<div class="row">
+				<div class="col-8 offset-2 ">
+					你有{{count}}件事演完成
+					<div class="input-group input-group-sm mb-3">
+					  <div class="input-group-prepend">
+					    <span class="input-group-text bg-success text-primary" id="inputGroup-sizing-sm">Small</span>
+					  </div>
+					  <input type="text" v-model="title" @keyup.13="add" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+					</div>
+					<ul class="list-group">
+					  <li v-for="(todo,index) in filterTodos" @dblclick="remember(todo)" class="list-group-item text-info">
+					  	<span :class="{del:todo.isSelected}" v-show="cur!=todo">
+					  		<input type="checkbox" v-model="todo.isSelected" />{{todo.title}}
+					  	</span>
+					  	<input type="text" v-model="todo.title" @keyup.enter="cancel" @blur="cancel" v-show="cur==todo"/>
+					  	
+						<button type="button" @click="remove(todo)" class="btn btn-info btn-sm float-right" aria-label="Left Align">
+							<span class="oi oi-ban" title="bell" aria-hidden="true"></span>
+						</button>
+					  </li>
+					</ul>
+					<ul class="nav justify-content-center bg-light">
+					  <li class="nav-item" v-bind:class="{'btn-danger':hash==='all'}">
+					    <a class="nav-link active" href="#/all" >全部任务</a>
+					  </li>
+					  <li class="nav-item" :class="{'btn-primary':hash==='finish'}" >
+					    <a class="nav-link" href="#/finish">已完成</a>
+					  </li>
+					  <li class="nav-item" :class="{'btn-primary':hash==='unfinish'}">
+					    <a class="nav-link" href="#/unfinish">未完成</a>
+					  </li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+		
+		<script src="../node_modules/axiose/dist/axios.js"></script>
+		<script src="../node_modules/vue/dist/vue.js"></script>
+		<script src="../js/todo.js">
+			
+		</script>
+	</body>
+</html>

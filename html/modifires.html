@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<div @click.capture="parent">
+				parent
+				<div @click="son">
+					son
+					<div @click="grandson">
+						grandson
+					</div>
+					<div >{{'hellw'|my}}</div>
+				</div>
+			</div>
+			<div id="app2">{{'hellw'|my}}</div>
+		</div>
+		<div id="app3">
+			全选<input type="checkbox" v-model="checkAll"/><br>
+			<input type="checkbox" v-for="product in products" v-model="product.isSelected">
+		</div>
+		<div id="app4">
+			<input type="text" v-model="a" />{{mesg}}
+		</div>
+		<script src="../node_modules/vue/dist/vue.js"></script>
+		<script>
+		Vue.filter('my',(data)=>{
+			return 'jw'+data;
+		});
+		new Vue({
+			el:'#app2',
+			/*filters:{
+					my(data){
+						return 'jw'+data;
+					}
+				}*/
+		});
+			let vm = new Vue({
+				el:'#app',
+				filters:{
+					/*my(data){
+						return 'jw'+data;
+					}*/
+				},
+				methods:{
+					parent(){alert('parent')},
+					son(){alert('son')},
+					grandson(){alert('grandson')}
+				}
+			});
+			
+			let vm3 = new Vue({
+				el:'#app3',
+				computed:{
+					checkAll:{
+						get(){
+							return this.products.every(item=>item.isSelected)
+						},
+						set(val){
+							this.products.forEach(item=>item.isSelected=val)
+						}
+					}
+				},
+				data:{
+					products:[{isSelected:0},{isSelected:true},{isSelected:true}]
+				}
+			});
+			
+			let vm4 = new Vue({
+				el:'#app4',
+				computed:{
+					mesg(){
+							if(this.a.length<3){
+								return '少了';
+							}
+							if(this.a.length>6){
+								return '多了';
+							}
+							return '';
+					}
+				},
+				data:{
+					a:''
+				}
+			});
+		</script>
+	</body>
+</html>

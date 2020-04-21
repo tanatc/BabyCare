@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>哒哒哒</title>
+	</head>
+	<body>
+		<div id="app">
+			{{msg}}
+			<input type="text" v-model="msg">
+		</div>
+		<script src="./node_modules/vue/dist/vue.js"></script>
+		<script>
+			let vm=new Vue({
+				el:'#app',
+				data:{
+					msg:'hello,dkfasl'
+				}
+			});
+		</script>
+	</body>
+</html>

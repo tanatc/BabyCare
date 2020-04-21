@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0">
+		<link rel="stylesheet" type="text/css" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="../css/iconfont.css">
+		<script type="text/javascript" src="../js/jquery-1.10.2.min.js"></script>
+		<script type="text/javascript" src="../node_modules/bootstrap/dist/js/bootstrap.js" ></script>
+		<title>窗帘和空调</title>
+		<style>
+			#room{
+				perspective: 600px;
+				/*background:burlywood;*/
+				width:100%;
+				height:500px;
+				
+			}
+			#scenery{
+				position: absolute;
+				right:0px;
+				top:100px;
+				width:400px;
+				height:250px;
+				transform-style: preserve-3d;
+				transform: translate3d(0,0,-500px);
+				/*background:rgba(10,198,29,.5);*/
+				background:url(../img/scenery2.jpg);
+				background-size: 100% 100%;
+				transform: 
+				translate3d(0,0,-400px)
+				rotate3d(0,1,0,-90deg)
+				;
+			}
+			#window{
+				width:100%;
+				height:100%;
+				border:10px solid white;
+				position:absolute;
+				background:rgba(200,200,200,.1);
+			}
+			#curtain{
+				background:	#FFC0CB;
+			    width: 100%;
+			    height: 30%;
+			    height: 100%;
+			    border: 3px solid gray;
+			    border-top: 15px solid lightgrey;
+			    
+			    box-shadow: 1px 5px 5px rgba(0,0,0,.5);
+			}
+			/*@keyframes turn-up-curtain{
+				0%{
+					height:0;
+				}
+				100%{
+					height:100%;
+				}
+			}
+			.turn-up-curtain{
+				animation:turn-up-curtain 3s linear;
+			}
+			@keyframes turn-off-curtain{
+				0%{
+					height:100%;
+				}
+				100%{
+					height:0;
+				}
+			}
+			.turn-off-curtain{
+				animation:turn-off-curtain 3s linear;
+			}
+			*/
+			#AirConditionerBox{
+				width:300px;
+				height:100px;
+				background:;
+				top:-100px;
+				/*border:1px solid red;*/
+				position: absolute;
+				transform-style: preserve-3d;
+				transform: 
+				translate3d(0,0,-500px)
+				rotate3d(0,1,0,0deg)
+				;
+				border-radius: 10px;
+				background:linear-gradient(70deg,#FFD700, white,#FFD700);/*#cc9900*/
+			}
+			#AB,#AF,#AL,#AN,#AR,#AT{
+				transform-style: preserve-3d;
+				position:absolute;
+				backface-visibility: visible;
+				background: rgba(225,225,225,.5);
+				border-radius: 10px;
+				border:1px solid white;
+			}
+			#AF,#AB{
+				width:300px;
+				height:100px;
+			}
+			#AL,#AR{
+				width:80px;
+				height:100px;
+			}
+			#AT,#AN{
+				width:300px;
+				height:80px;
+				transform:;
+			}
+			#AB{
+				transform:translate3d(0,0,-80px);
+			}
+			#AL{
+				transform:
+				rotate3d(0,1,0,-90deg)
+				translate3d(-40px,0,40px);
+			}
+			#AR{
+				transform:
+				rotate3d(0,1,0,-90deg)
+				translate3d(-40px,0,-260px);
+			}
+			#AT{
+				transform:
+				rotate3d(1,0,0,-90deg)
+				translate3d(0,40px,-40px)
+				;
+			}
+			#AN{
+				transform:
+				rotate3d(1,0,0,90deg)
+				translate3d(0,-40px,-60px)
+				;
+			}
+			#display{
+				width:100px;
+				height:30px;
+				margin:20px auto;
+				background:	#FFEC8B;/*rgba(210,200,49,.8)*/
+				text-align: center;
+				line-height: 30px;
+				border-radius: 5px;
+				box-shadow:inset 2px 2px 2px gray;
+			}
+			.leaf{
+				position: absolute;
+				width:100%;
+				height:10px;
+				background:white;
+				
+			}
+			.leaf:nth-of-type(4){
+				transform: 
+				translate3d(0,20px,0)
+				rotate3d(1,0,0,45deg)
+				;
+			}
+			.leaf:nth-of-type(3){
+				transform: 
+				translate3d(0,10px,0)
+				rotate3d(1,0,0,45deg)
+				;
+			}
+			.leaf:nth-of-type(2){
+				transform: 
+				rotate3d(1,0,0,45deg)
+				;
+			}
+			#buttons{
+				position: absolute;
+				top:200px;
+				width:200px;
+				background:greenyellow;
+			}
+			.btn-sm{
+			}
+			#AirConditionerControl input{
+				width:50px;
+				height:50px;
+				border-radius: 100%;
+				margin:5px auto;
+			}
+		</style>
+	</head>
+	<body style="background:#FFFACD">
+		<div class="container-fluid pt-3">		
+			<div class="h4 text-muted" style="width:100%;height:40px">
+				<span class="iconfont">&#xe617;</span>
+				设施控制
+			</div>
+			<div id="room">
+				<div id="scenery">
+					<div id="window">
+						<div id="curtain">
+						</div>
+					</div>
+				</div>
+				<div id="AirConditionerBox">
+					<div id="AF">
+						<div id="display">
+							23℃
+						</div>
+						<div class="leaf"></div>
+						<div class="leaf"></div>
+						<div class="leaf"></div>
+					</div>
+					<div id="AB"></div>
+					<div id="AL"></div>
+					<div id="AR"></div>
+					<div id="AT"></div>
+					<div id="AN"></div>
+				</div>
+				<div id="buttons">
+					<button class="btn-sm btn-primary" id="tuc">打开窗帘</button>
+					<button class="btn-sm btn-primary" id="toc">关上窗帘</button>
+					<button class="btn-sm btn-primary" id="uc">上升窗帘</button>
+					<button class="btn-sm btn-primary" id="dc">下降窗帘</button>
+					<div id="AirConditionerControl">
+						<button class="btn-sm btn-primary" id="dc">+</button>
+						<input type="text" />
+						<button class="btn-sm btn-primary" id="dc">-</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		$(function(){
+			var curtainH=parseInt($('#curtain').css('height'));
+			$('#tuc').click(function(){
+				/*$('#curtain').removeClass('turn-off-curtain').addClass('turn-up-curtain');*/
+				$('#curtain').animate({height:'0'},'slow');
+			});
+			$('#toc').click(function(){
+				/*$('#curtain').removeClass('turn-up-curtain').addClass('turn-off-curtain');*/
+				$('#curtain').animate({height:'100%'},'slow');
+			});
+			$('#uc').click(function(){
+				curtainH=parseInt($('#curtain').css('height'));
+				$('#curtain').animate({height:curtainH-50},'slow');
+				
+			});
+			$('#dc').click(function(){
+				curtainH=parseInt($('#curtain').css('height'));
+				if(curtainH<250){
+					$('#curtain').animate({height:curtainH+50},'slow');
+				}
+			});
+		});
+	</script>
+</html>
