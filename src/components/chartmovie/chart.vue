@@ -2,8 +2,8 @@
 	<div id="chart" class="col-md-7 col-sm-12 m-auto p-0 h-100">
 	</div>
 </template>
-<script type="text/javascript">
-	$(function(){
+<script>
+	function test(){
 		var myChart = echarts.init(document.getElementById('chart'));
 		var option = {
 		    baseOption:{
@@ -263,5 +263,11 @@
 		window.addEventListener("resize", function () {
 	      myChart.resize();
 	    });				
-	});
+	}
+	export default {
+		mounted() {
+			test();
+		},
+		
+	}
 </script>
